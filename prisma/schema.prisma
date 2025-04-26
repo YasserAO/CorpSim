@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  MANAGER
+  TEAM_LEAD
+  USER
+  
+}
+
+model admin{
+  id Int @id @default(autoincrement())
+  clerkId String @unique
+  password String?
+  email String
+  first_name String
+  last_name String
+  budget Float
+  company company[] @relation("CompanyOwner")
+  employees employee[]  @relation("CompanyEmployees")
+}
+
+model company {
+  id Int @id @default(autoincrement())
+  name String 
+  email String
+  ownerID Int @unique
+  owner admin @relation("CompanyOwner",fields: [ownerID],references: [id])
+  team team[] @relation("Teams")
+  employee employee[] @relation("employee")
+  @@unique([id, name])
+
+}
+
+model team {
+  id Int @id @default(autoincrement())
+  name String @unique
+  department String
+  tasks  task[]  
+  lead employee @relation("TeamLeader",fields: [lead_id],references: [id])
+  lead_id Int @unique
+  members employee[] @relation("TeamMembers")
+  company company @relation("Teams",fields: [companyName,companyID],references: [name,id])
+  companyName String
+  companyID Int 
+}
+
+model employee {
+id Int @id @default(autoincrement())
+first_name String
+last_name String
+email String
+role UserRole
+salary Int?
+managerId Int? 
+manager employee? @relation("ManagerRelation",fields: [managerId],references: [id])
+managedEmployees employee[] @relation("ManagerRelation")
+team             team      @relation("TeamMembers", fields: [teamId], references: [id])
+leadsTeam        team?     @relation("TeamLeader")
+teamId Int 
+admin admin @relation("CompanyEmployees",fields: [adminID],references: [id])
+adminID Int
+company company @relation("employee",fields: [companyID,companyName],references: [id,name])
+companyName String 
+companyID Int 
+
+
+}
+
+model task {
+  id Int @id @default(autoincrement())
+  title String
+  descreption String?
+  content String
+  attachement String?
+  team  team @relation(fields: [teamId],references: [id])
+  teamId Int
+  
+}
+
+model market_employee {
+  id          Int       @id @default(autoincrement())
+  first_name  String
+  last_name   String
+  email       String    @unique
+  role        UserRole
+  salary      Int?
+  bio         String?
+  skills      String?   
+  experience  Int?      
+  createdAt   DateTime  @default(now())
+}
+
+
+
+
+
+
