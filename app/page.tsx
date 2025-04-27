@@ -1,13 +1,3 @@
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  SignIn,
-} from "@clerk/nextjs";
-
 export default function Page() {
   return (
     <div className="px-[10%] py-10">
