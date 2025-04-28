@@ -22,9 +22,17 @@ import Link from "next/link";
 import { Company } from "@/app/types";
 import { cn } from "@/lib/utils";
 
-function CompSwitch({ Companies }: { Companies: Company[] }) {
+function CompSwitch({
+  Companies,
+  activeCorp,
+}: {
+  Companies: Company[];
+  activeCorp: number;
+}) {
+  console.log(activeCorp);
   const { isMobile } = useSidebar();
-  const [activeTeam, setActiveTeam] = React.useState(Companies[0]);
+  const [compIndex, setCompIndex] = React.useState(activeCorp);
+  const [activeTeam, setActiveTeam] = React.useState(Companies[activeCorp]);
 
   if (!activeTeam) {
     return null;
@@ -37,10 +45,10 @@ function CompSwitch({ Companies }: { Companies: Company[] }) {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              className="cursor-pointer   data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Building />
-              <div className="grid flex-1 text-left text-sm leading-tight">
+              <div className=" grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">
                   {activeTeam.name}
                 </span>
@@ -60,16 +68,23 @@ function CompSwitch({ Companies }: { Companies: Company[] }) {
             </DropdownMenuLabel>
             {Companies.map((team, index) => (
               <Link
-                key={team.name}
                 href={`/${team.name}`}
+                key={team.name}
                 className={cn(
                   "",
-                  team.name == activeTeam.name && "pointer-events-none"
+                  team.name == activeTeam.name && "pointer-events-none "
                 )}
               >
                 <DropdownMenuItem
-                  onClick={() => setActiveTeam(team)}
-                  className="gap-2 p-2"
+                  onClick={() => {
+                    setActiveTeam(team);
+                    document.cookie = `CorpSelection=${index};path=/`;
+                  }}
+                  className={cn(
+                    "gap-2 p-2 cursor-pointer",
+                    team.name == activeTeam.name &&
+                      "bg-primary text-primary-foreground"
+                  )}
                 >
                   {team.name}
                   <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>

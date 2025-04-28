@@ -1,6 +1,4 @@
-// Mock
 import { mockData } from "@/app/mock/Mockcompanies";
-
 // Types and db
 import { company } from "@/app/generated/prisma";
 import { userCheck } from "@/app/server/checkUser";
@@ -26,8 +24,12 @@ import {
   Home,
   UsersRound,
   UserRoundPlus,
+  Plus,
 } from "lucide-react";
 import Link from "next/link";
+import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { cookies } from "next/headers";
 
 const items = [
   {
@@ -53,7 +55,7 @@ const items = [
 ];
 type Comp = {
   status: Boolean;
-  company: company[];
+  company: company[] | null;
 };
 export default async function AppSidebar() {
   let Comp: Comp = { status: true, company: mockData };
@@ -70,12 +72,36 @@ export default async function AppSidebar() {
     }
   }
   await setComp(Comp);
+  const cookie = await cookies();
+  const activeCorpString = cookie.get("CorpSelection")?.value;
+  const sidebar_state = cookie.get("sidebar_state");
+
+  const activeCorp = activeCorpString ? Number(activeCorpString) : 0;
 
   return (
     <Sidebar>
       <SidebarHeader>
-        <CompanySwitcher Companies={Comp.company}></CompanySwitcher>
+        {Comp.status && Comp.company !== null ? (
+          <CompanySwitcher
+            Companies={Comp.company}
+            activeCorp={activeCorp}
+          ></CompanySwitcher>
+        ) : (
+          <Button
+            variant={"outline"}
+            size={"default"}
+            className="w-[80%] mx-auto "
+          >
+            <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+              <Plus className="size-4" />
+            </div>
+            <div className="font-medium text-muted-foreground">
+              Create a company
+            </div>
+          </Button>
+        )}
       </SidebarHeader>
+
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Corp Settings</SidebarGroupLabel>
@@ -93,7 +119,7 @@ export default async function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
 }
