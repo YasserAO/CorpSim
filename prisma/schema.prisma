@@ -27,6 +27,7 @@ model admin{
   clerkId String @unique
   password String?
   email String
+  avatar String
   first_name String
   last_name String
   budget Float

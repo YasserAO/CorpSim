@@ -55,6 +55,7 @@ async function createAdmin(user: any): Promise<FindAdminResult> {
         email: user.emailAddresses[0].emailAddress,
         budget: 1000.0,
         clerkId: user.id,
+        avatar: user.imageUrl,
       },
     });
 

@@ -1520,6 +1520,7 @@ export namespace Prisma {
     clerkId: string | null
     password: string | null
     email: string | null
+    avatar: string | null
     first_name: string | null
     last_name: string | null
     budget: number | null
@@ -1530,6 +1531,7 @@ export namespace Prisma {
     clerkId: string | null
     password: string | null
     email: string | null
+    avatar: string | null
     first_name: string | null
     last_name: string | null
     budget: number | null
@@ -1540,6 +1542,7 @@ export namespace Prisma {
     clerkId: number
     password: number
     email: number
+    avatar: number
     first_name: number
     last_name: number
     budget: number
@@ -1562,6 +1565,7 @@ export namespace Prisma {
     clerkId?: true
     password?: true
     email?: true
+    avatar?: true
     first_name?: true
     last_name?: true
     budget?: true
@@ -1572,6 +1576,7 @@ export namespace Prisma {
     clerkId?: true
     password?: true
     email?: true
+    avatar?: true
     first_name?: true
     last_name?: true
     budget?: true
@@ -1582,6 +1587,7 @@ export namespace Prisma {
     clerkId?: true
     password?: true
     email?: true
+    avatar?: true
     first_name?: true
     last_name?: true
     budget?: true
@@ -1679,6 +1685,7 @@ export namespace Prisma {
     clerkId: string
     password: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -1708,6 +1715,7 @@ export namespace Prisma {
     clerkId?: boolean
     password?: boolean
     email?: boolean
+    avatar?: boolean
     first_name?: boolean
     last_name?: boolean
     budget?: boolean
@@ -1721,6 +1729,7 @@ export namespace Prisma {
     clerkId?: boolean
     password?: boolean
     email?: boolean
+    avatar?: boolean
     first_name?: boolean
     last_name?: boolean
     budget?: boolean
@@ -1731,6 +1740,7 @@ export namespace Prisma {
     clerkId?: boolean
     password?: boolean
     email?: boolean
+    avatar?: boolean
     first_name?: boolean
     last_name?: boolean
     budget?: boolean
@@ -1741,12 +1751,13 @@ export namespace Prisma {
     clerkId?: boolean
     password?: boolean
     email?: boolean
+    avatar?: boolean
     first_name?: boolean
     last_name?: boolean
     budget?: boolean
   }
 
-  export type adminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkId" | "password" | "email" | "first_name" | "last_name" | "budget", ExtArgs["result"]["admin"]>
+  export type adminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkId" | "password" | "email" | "avatar" | "first_name" | "last_name" | "budget", ExtArgs["result"]["admin"]>
   export type adminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     company?: boolean | admin$companyArgs<ExtArgs>
     employees?: boolean | admin$employeesArgs<ExtArgs>
@@ -1766,6 +1777,7 @@ export namespace Prisma {
       clerkId: string
       password: string | null
       email: string
+      avatar: string
       first_name: string
       last_name: string
       budget: number
@@ -2198,6 +2210,7 @@ export namespace Prisma {
     readonly clerkId: FieldRef<"admin", 'String'>
     readonly password: FieldRef<"admin", 'String'>
     readonly email: FieldRef<"admin", 'String'>
+    readonly avatar: FieldRef<"admin", 'String'>
     readonly first_name: FieldRef<"admin", 'String'>
     readonly last_name: FieldRef<"admin", 'String'>
     readonly budget: FieldRef<"admin", 'Float'>
@@ -8491,6 +8504,7 @@ export namespace Prisma {
     clerkId: 'clerkId',
     password: 'password',
     email: 'email',
+    avatar: 'avatar',
     first_name: 'first_name',
     last_name: 'last_name',
     budget: 'budget'
@@ -8676,6 +8690,7 @@ export namespace Prisma {
     clerkId?: StringFilter<"admin"> | string
     password?: StringNullableFilter<"admin"> | string | null
     email?: StringFilter<"admin"> | string
+    avatar?: StringFilter<"admin"> | string
     first_name?: StringFilter<"admin"> | string
     last_name?: StringFilter<"admin"> | string
     budget?: FloatFilter<"admin"> | number
@@ -8688,6 +8703,7 @@ export namespace Prisma {
     clerkId?: SortOrder
     password?: SortOrderInput | SortOrder
     email?: SortOrder
+    avatar?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
     budget?: SortOrder
@@ -8703,6 +8719,7 @@ export namespace Prisma {
     NOT?: adminWhereInput | adminWhereInput[]
     password?: StringNullableFilter<"admin"> | string | null
     email?: StringFilter<"admin"> | string
+    avatar?: StringFilter<"admin"> | string
     first_name?: StringFilter<"admin"> | string
     last_name?: StringFilter<"admin"> | string
     budget?: FloatFilter<"admin"> | number
@@ -8715,6 +8732,7 @@ export namespace Prisma {
     clerkId?: SortOrder
     password?: SortOrderInput | SortOrder
     email?: SortOrder
+    avatar?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
     budget?: SortOrder
@@ -8733,6 +8751,7 @@ export namespace Prisma {
     clerkId?: StringWithAggregatesFilter<"admin"> | string
     password?: StringNullableWithAggregatesFilter<"admin"> | string | null
     email?: StringWithAggregatesFilter<"admin"> | string
+    avatar?: StringWithAggregatesFilter<"admin"> | string
     first_name?: StringWithAggregatesFilter<"admin"> | string
     last_name?: StringWithAggregatesFilter<"admin"> | string
     budget?: FloatWithAggregatesFilter<"admin"> | number
@@ -9115,6 +9134,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -9127,6 +9147,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -9138,6 +9159,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -9150,6 +9172,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -9162,6 +9185,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -9171,6 +9195,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -9181,6 +9206,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -9627,6 +9653,7 @@ export namespace Prisma {
     clerkId?: SortOrder
     password?: SortOrder
     email?: SortOrder
+    avatar?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
     budget?: SortOrder
@@ -9642,6 +9669,7 @@ export namespace Prisma {
     clerkId?: SortOrder
     password?: SortOrder
     email?: SortOrder
+    avatar?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
     budget?: SortOrder
@@ -9652,6 +9680,7 @@ export namespace Prisma {
     clerkId?: SortOrder
     password?: SortOrder
     email?: SortOrder
+    avatar?: SortOrder
     first_name?: SortOrder
     last_name?: SortOrder
     budget?: SortOrder
@@ -10874,6 +10903,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -10885,6 +10915,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -10975,6 +11006,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -10986,6 +11018,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -11382,6 +11415,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -11393,6 +11427,7 @@ export namespace Prisma {
     clerkId: string
     password?: string | null
     email: string
+    avatar: string
     first_name: string
     last_name: string
     budget: number
@@ -11552,6 +11587,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
@@ -11563,6 +11599,7 @@ export namespace Prisma {
     clerkId?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
+    avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number

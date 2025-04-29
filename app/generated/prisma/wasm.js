@@ -122,6 +122,7 @@ exports.Prisma.AdminScalarFieldEnum = {
   clerkId: 'clerkId',
   password: 'password',
   email: 'email',
+  avatar: 'avatar',
   first_name: 'first_name',
   last_name: 'last_name',
   budget: 'budget'
