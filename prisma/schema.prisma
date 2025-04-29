@@ -30,16 +30,21 @@ model admin{
   avatar String
   first_name String
   last_name String
-  budget Float
+  budget Decimal
   company company[] @relation("CompanyOwner")
   employees employee[]  @relation("CompanyEmployees")
 }
 
 model company {
   id Int @id @default(autoincrement())
-  name String 
+  name String @unique
   email String
-  ownerID Int @unique
+  income Decimal?
+  profit Decimal?
+  status String?
+  workField String
+  createdAt DateTime @default(now())
+  ownerID Int 
   owner admin @relation("CompanyOwner",fields: [ownerID],references: [id])
   team team[] @relation("Teams")
   employee employee[] @relation("employee")
