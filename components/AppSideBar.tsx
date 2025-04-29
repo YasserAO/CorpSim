@@ -25,6 +25,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
 import { NavUser } from "@/components/navUser";
+import { setCorpSelection } from "@/app/server/cookieSet";
 
 const items = [
   {
@@ -64,8 +65,9 @@ export default async function AppSidebar() {
     };
   }
 
-  let Comp: Comp = { status: false, company: null };
-
+  let Comp: Comp = { status: true, company: null };
+  let companies;
+  if (FindUser.status == true) companies = await getCompanies(FindUser.user.id);
   async function setComp(Comp: Comp) {
     if (FindUser.status == true) {
       const companies = await getCompanies(FindUser.user.id);
@@ -78,7 +80,12 @@ export default async function AppSidebar() {
   await setComp(Comp);
   const cookie = await cookies();
   const activeCorpString = cookie.get("CorpSelection")?.value;
-  const activeCorp = activeCorpString ? Number(activeCorpString) : 0;
+  let activeCorp = activeCorpString ? Number(activeCorpString) : 0;
+  if (companies?.status) {
+    if (activeCorp > companies.company.length - 1) {
+      activeCorp = 0;
+    }
+  }
 
   return (
     <Sidebar>
@@ -89,18 +96,16 @@ export default async function AppSidebar() {
             activeCorp={activeCorp}
           ></CompanySwitcher>
         ) : (
-          <Button
-            variant={"outline"}
-            size={"default"}
-            className="w-[80%] mx-auto cursor-pointer"
-          >
-            <div className="flex size-6 items-center justify-center rounded-md border bg-background">
-              <Plus className="size-4" />
-            </div>
-            <div className="font-medium text-muted-foreground">
-              Create a company
-            </div>
-          </Button>
+          <Link href={`/corp/create`}>
+            <Button variant={"outline"} size={"default"} className="w-full">
+              <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+                <Plus className="size-4" />
+              </div>
+              <div className="font-medium text-muted-foreground">
+                Create a company
+              </div>
+            </Button>
+          </Link>
         )}
       </SidebarHeader>
 

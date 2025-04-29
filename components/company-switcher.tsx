@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { ChevronsUpDown, Plus, Building } from "lucide-react";
-
+import Cookies from "js-cookie";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +33,16 @@ function CompSwitch({
   const { isMobile } = useSidebar();
   const [compIndex, setCompIndex] = React.useState(activeCorp);
   const [activeTeam, setActiveTeam] = React.useState(Companies[activeCorp]);
+  const setCookie = async () => {
+    let activeCorp = Cookies.get("CorpSelection")
+      ? Number(Cookies.get("CorpSelection"))
+      : 0;
+    if (activeCorp > Companies.length - 1) activeCorp = 0;
+    Cookies.set("CorpSelection", `${activeCorp}`);
+  };
+  React.useEffect(() => {
+    setCookie();
+  }, [Companies]);
 
   if (!activeTeam) {
     return null;
@@ -68,7 +78,7 @@ function CompSwitch({
             </DropdownMenuLabel>
             {Companies.map((team, index) => (
               <Link
-                href={`/${team.name}`}
+                href={`/`}
                 key={team.name}
                 className={cn(
                   "",
@@ -93,10 +103,14 @@ function CompSwitch({
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border bg-background">
-                <Plus className="size-4" />
-              </div>
-              <div className="font-medium text-muted-foreground">Add team</div>
+              <Link href={"/corp/create"} className="flex gap-1 w-full">
+                <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+                  <Plus className="size-4" />
+                </div>
+                <div className="font-medium text-muted-foreground">
+                  Add Company
+                </div>
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
