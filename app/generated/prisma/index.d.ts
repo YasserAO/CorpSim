@@ -1507,12 +1507,12 @@ export namespace Prisma {
 
   export type AdminAvgAggregateOutputType = {
     id: number | null
-    budget: number | null
+    budget: Decimal | null
   }
 
   export type AdminSumAggregateOutputType = {
     id: number | null
-    budget: number | null
+    budget: Decimal | null
   }
 
   export type AdminMinAggregateOutputType = {
@@ -1523,7 +1523,7 @@ export namespace Prisma {
     avatar: string | null
     first_name: string | null
     last_name: string | null
-    budget: number | null
+    budget: Decimal | null
   }
 
   export type AdminMaxAggregateOutputType = {
@@ -1534,7 +1534,7 @@ export namespace Prisma {
     avatar: string | null
     first_name: string | null
     last_name: string | null
-    budget: number | null
+    budget: Decimal | null
   }
 
   export type AdminCountAggregateOutputType = {
@@ -1688,7 +1688,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal
     _count: AdminCountAggregateOutputType | null
     _avg: AdminAvgAggregateOutputType | null
     _sum: AdminSumAggregateOutputType | null
@@ -1780,7 +1780,7 @@ export namespace Prisma {
       avatar: string
       first_name: string
       last_name: string
-      budget: number
+      budget: Prisma.Decimal
     }, ExtArgs["result"]["admin"]>
     composites: {}
   }
@@ -2213,7 +2213,7 @@ export namespace Prisma {
     readonly avatar: FieldRef<"admin", 'String'>
     readonly first_name: FieldRef<"admin", 'String'>
     readonly last_name: FieldRef<"admin", 'String'>
-    readonly budget: FieldRef<"admin", 'Float'>
+    readonly budget: FieldRef<"admin", 'Decimal'>
   }
     
 
@@ -2682,11 +2682,15 @@ export namespace Prisma {
 
   export type CompanyAvgAggregateOutputType = {
     id: number | null
+    income: Decimal | null
+    profit: Decimal | null
     ownerID: number | null
   }
 
   export type CompanySumAggregateOutputType = {
     id: number | null
+    income: Decimal | null
+    profit: Decimal | null
     ownerID: number | null
   }
 
@@ -2694,6 +2698,11 @@ export namespace Prisma {
     id: number | null
     name: string | null
     email: string | null
+    income: Decimal | null
+    profit: Decimal | null
+    status: string | null
+    workField: string | null
+    createdAt: Date | null
     ownerID: number | null
   }
 
@@ -2701,6 +2710,11 @@ export namespace Prisma {
     id: number | null
     name: string | null
     email: string | null
+    income: Decimal | null
+    profit: Decimal | null
+    status: string | null
+    workField: string | null
+    createdAt: Date | null
     ownerID: number | null
   }
 
@@ -2708,6 +2722,11 @@ export namespace Prisma {
     id: number
     name: number
     email: number
+    income: number
+    profit: number
+    status: number
+    workField: number
+    createdAt: number
     ownerID: number
     _all: number
   }
@@ -2715,11 +2734,15 @@ export namespace Prisma {
 
   export type CompanyAvgAggregateInputType = {
     id?: true
+    income?: true
+    profit?: true
     ownerID?: true
   }
 
   export type CompanySumAggregateInputType = {
     id?: true
+    income?: true
+    profit?: true
     ownerID?: true
   }
 
@@ -2727,6 +2750,11 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    income?: true
+    profit?: true
+    status?: true
+    workField?: true
+    createdAt?: true
     ownerID?: true
   }
 
@@ -2734,6 +2762,11 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    income?: true
+    profit?: true
+    status?: true
+    workField?: true
+    createdAt?: true
     ownerID?: true
   }
 
@@ -2741,6 +2774,11 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    income?: true
+    profit?: true
+    status?: true
+    workField?: true
+    createdAt?: true
     ownerID?: true
     _all?: true
   }
@@ -2835,6 +2873,11 @@ export namespace Prisma {
     id: number
     name: string
     email: string
+    income: Decimal | null
+    profit: Decimal | null
+    status: string | null
+    workField: string
+    createdAt: Date
     ownerID: number
     _count: CompanyCountAggregateOutputType | null
     _avg: CompanyAvgAggregateOutputType | null
@@ -2861,6 +2904,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    income?: boolean
+    profit?: boolean
+    status?: boolean
+    workField?: boolean
+    createdAt?: boolean
     ownerID?: boolean
     owner?: boolean | adminDefaultArgs<ExtArgs>
     team?: boolean | company$teamArgs<ExtArgs>
@@ -2872,6 +2920,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    income?: boolean
+    profit?: boolean
+    status?: boolean
+    workField?: boolean
+    createdAt?: boolean
     ownerID?: boolean
     owner?: boolean | adminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["company"]>
@@ -2880,6 +2933,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    income?: boolean
+    profit?: boolean
+    status?: boolean
+    workField?: boolean
+    createdAt?: boolean
     ownerID?: boolean
     owner?: boolean | adminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["company"]>
@@ -2888,10 +2946,15 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    income?: boolean
+    profit?: boolean
+    status?: boolean
+    workField?: boolean
+    createdAt?: boolean
     ownerID?: boolean
   }
 
-  export type companyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "ownerID", ExtArgs["result"]["company"]>
+  export type companyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "income" | "profit" | "status" | "workField" | "createdAt" | "ownerID", ExtArgs["result"]["company"]>
   export type companyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | adminDefaultArgs<ExtArgs>
     team?: boolean | company$teamArgs<ExtArgs>
@@ -2916,6 +2979,11 @@ export namespace Prisma {
       id: number
       name: string
       email: string
+      income: Prisma.Decimal | null
+      profit: Prisma.Decimal | null
+      status: string | null
+      workField: string
+      createdAt: Date
       ownerID: number
     }, ExtArgs["result"]["company"]>
     composites: {}
@@ -3346,6 +3414,11 @@ export namespace Prisma {
     readonly id: FieldRef<"company", 'Int'>
     readonly name: FieldRef<"company", 'String'>
     readonly email: FieldRef<"company", 'String'>
+    readonly income: FieldRef<"company", 'Decimal'>
+    readonly profit: FieldRef<"company", 'Decimal'>
+    readonly status: FieldRef<"company", 'String'>
+    readonly workField: FieldRef<"company", 'String'>
+    readonly createdAt: FieldRef<"company", 'DateTime'>
     readonly ownerID: FieldRef<"company", 'Int'>
   }
     
@@ -8517,6 +8590,11 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     email: 'email',
+    income: 'income',
+    profit: 'profit',
+    status: 'status',
+    workField: 'workField',
+    createdAt: 'createdAt',
     ownerID: 'ownerID'
   };
 
@@ -8638,16 +8716,30 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'Decimal'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
     
 
 
   /**
-   * Reference to a field of type 'Float[]'
+   * Reference to a field of type 'Decimal[]'
    */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -8666,16 +8758,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'Float'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 
   /**
-   * Reference to a field of type 'DateTime[]'
+   * Reference to a field of type 'Float[]'
    */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -8693,7 +8785,7 @@ export namespace Prisma {
     avatar?: StringFilter<"admin"> | string
     first_name?: StringFilter<"admin"> | string
     last_name?: StringFilter<"admin"> | string
-    budget?: FloatFilter<"admin"> | number
+    budget?: DecimalFilter<"admin"> | Decimal | DecimalJsLike | number | string
     company?: CompanyListRelationFilter
     employees?: EmployeeListRelationFilter
   }
@@ -8722,7 +8814,7 @@ export namespace Prisma {
     avatar?: StringFilter<"admin"> | string
     first_name?: StringFilter<"admin"> | string
     last_name?: StringFilter<"admin"> | string
-    budget?: FloatFilter<"admin"> | number
+    budget?: DecimalFilter<"admin"> | Decimal | DecimalJsLike | number | string
     company?: CompanyListRelationFilter
     employees?: EmployeeListRelationFilter
   }, "id" | "clerkId">
@@ -8754,7 +8846,7 @@ export namespace Prisma {
     avatar?: StringWithAggregatesFilter<"admin"> | string
     first_name?: StringWithAggregatesFilter<"admin"> | string
     last_name?: StringWithAggregatesFilter<"admin"> | string
-    budget?: FloatWithAggregatesFilter<"admin"> | number
+    budget?: DecimalWithAggregatesFilter<"admin"> | Decimal | DecimalJsLike | number | string
   }
 
   export type companyWhereInput = {
@@ -8764,6 +8856,11 @@ export namespace Prisma {
     id?: IntFilter<"company"> | number
     name?: StringFilter<"company"> | string
     email?: StringFilter<"company"> | string
+    income?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    profit?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    status?: StringNullableFilter<"company"> | string | null
+    workField?: StringFilter<"company"> | string
+    createdAt?: DateTimeFilter<"company"> | Date | string
     ownerID?: IntFilter<"company"> | number
     owner?: XOR<AdminScalarRelationFilter, adminWhereInput>
     team?: TeamListRelationFilter
@@ -8774,6 +8871,11 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    income?: SortOrderInput | SortOrder
+    profit?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
+    workField?: SortOrder
+    createdAt?: SortOrder
     ownerID?: SortOrder
     owner?: adminOrderByWithRelationInput
     team?: teamOrderByRelationAggregateInput
@@ -8782,22 +8884,32 @@ export namespace Prisma {
 
   export type companyWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    ownerID?: number
+    name?: string
     id_name?: companyIdNameCompoundUniqueInput
     AND?: companyWhereInput | companyWhereInput[]
     OR?: companyWhereInput[]
     NOT?: companyWhereInput | companyWhereInput[]
-    name?: StringFilter<"company"> | string
     email?: StringFilter<"company"> | string
+    income?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    profit?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    status?: StringNullableFilter<"company"> | string | null
+    workField?: StringFilter<"company"> | string
+    createdAt?: DateTimeFilter<"company"> | Date | string
+    ownerID?: IntFilter<"company"> | number
     owner?: XOR<AdminScalarRelationFilter, adminWhereInput>
     team?: TeamListRelationFilter
     employee?: EmployeeListRelationFilter
-  }, "id" | "ownerID" | "id_name">
+  }, "id" | "name" | "id_name">
 
   export type companyOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    income?: SortOrderInput | SortOrder
+    profit?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
+    workField?: SortOrder
+    createdAt?: SortOrder
     ownerID?: SortOrder
     _count?: companyCountOrderByAggregateInput
     _avg?: companyAvgOrderByAggregateInput
@@ -8813,6 +8925,11 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"company"> | number
     name?: StringWithAggregatesFilter<"company"> | string
     email?: StringWithAggregatesFilter<"company"> | string
+    income?: DecimalNullableWithAggregatesFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    profit?: DecimalNullableWithAggregatesFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    status?: StringNullableWithAggregatesFilter<"company"> | string | null
+    workField?: StringWithAggregatesFilter<"company"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"company"> | Date | string
     ownerID?: IntWithAggregatesFilter<"company"> | number
   }
 
@@ -9137,7 +9254,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     company?: companyCreateNestedManyWithoutOwnerInput
     employees?: employeeCreateNestedManyWithoutAdminInput
   }
@@ -9150,7 +9267,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     company?: companyUncheckedCreateNestedManyWithoutOwnerInput
     employees?: employeeUncheckedCreateNestedManyWithoutAdminInput
   }
@@ -9162,7 +9279,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     company?: companyUpdateManyWithoutOwnerNestedInput
     employees?: employeeUpdateManyWithoutAdminNestedInput
   }
@@ -9175,7 +9292,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     company?: companyUncheckedUpdateManyWithoutOwnerNestedInput
     employees?: employeeUncheckedUpdateManyWithoutAdminNestedInput
   }
@@ -9188,7 +9305,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
   }
 
   export type adminUpdateManyMutationInput = {
@@ -9198,7 +9315,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type adminUncheckedUpdateManyInput = {
@@ -9209,12 +9326,17 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type companyCreateInput = {
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     owner: adminCreateNestedOneWithoutCompanyInput
     team?: teamCreateNestedManyWithoutCompanyInput
     employee?: employeeCreateNestedManyWithoutCompanyInput
@@ -9224,6 +9346,11 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     ownerID: number
     team?: teamUncheckedCreateNestedManyWithoutCompanyInput
     employee?: employeeUncheckedCreateNestedManyWithoutCompanyInput
@@ -9232,6 +9359,11 @@ export namespace Prisma {
   export type companyUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: adminUpdateOneRequiredWithoutCompanyNestedInput
     team?: teamUpdateManyWithoutCompanyNestedInput
     employee?: employeeUpdateManyWithoutCompanyNestedInput
@@ -9241,6 +9373,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerID?: IntFieldUpdateOperationsInput | number
     team?: teamUncheckedUpdateManyWithoutCompanyNestedInput
     employee?: employeeUncheckedUpdateManyWithoutCompanyNestedInput
@@ -9250,18 +9387,33 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     ownerID: number
   }
 
   export type companyUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type companyUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerID?: IntFieldUpdateOperationsInput | number
   }
 
@@ -9612,15 +9764,15 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
   export type CompanyListRelationFilter = {
@@ -9743,20 +9895,42 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type AdminScalarRelationFilter = {
@@ -9783,11 +9957,18 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    income?: SortOrder
+    profit?: SortOrder
+    status?: SortOrder
+    workField?: SortOrder
+    createdAt?: SortOrder
     ownerID?: SortOrder
   }
 
   export type companyAvgOrderByAggregateInput = {
     id?: SortOrder
+    income?: SortOrder
+    profit?: SortOrder
     ownerID?: SortOrder
   }
 
@@ -9795,6 +9976,11 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    income?: SortOrder
+    profit?: SortOrder
+    status?: SortOrder
+    workField?: SortOrder
+    createdAt?: SortOrder
     ownerID?: SortOrder
   }
 
@@ -9802,12 +9988,49 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    income?: SortOrder
+    profit?: SortOrder
+    status?: SortOrder
+    workField?: SortOrder
+    createdAt?: SortOrder
     ownerID?: SortOrder
   }
 
   export type companySumOrderByAggregateInput = {
     id?: SortOrder
+    income?: SortOrder
+    profit?: SortOrder
     ownerID?: SortOrder
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type TaskListRelationFilter = {
@@ -10025,17 +10248,6 @@ export namespace Prisma {
     teamId?: SortOrder
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type market_employeeCountOrderByAggregateInput = {
     id?: SortOrder
     first_name?: SortOrder
@@ -10087,20 +10299,6 @@ export namespace Prisma {
     experience?: SortOrder
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type companyCreateNestedManyWithoutOwnerInput = {
     create?: XOR<companyCreateWithoutOwnerInput, companyUncheckedCreateWithoutOwnerInput> | companyCreateWithoutOwnerInput[] | companyUncheckedCreateWithoutOwnerInput[]
     connectOrCreate?: companyCreateOrConnectWithoutOwnerInput | companyCreateOrConnectWithoutOwnerInput[]
@@ -10137,12 +10335,12 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
   }
 
   export type companyUpdateManyWithoutOwnerNestedInput = {
@@ -10241,6 +10439,18 @@ export namespace Prisma {
     connectOrCreate?: employeeCreateOrConnectWithoutCompanyInput | employeeCreateOrConnectWithoutCompanyInput[]
     createMany?: employeeCreateManyCompanyInputEnvelope
     connect?: employeeWhereUniqueInput | employeeWhereUniqueInput[]
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type adminUpdateOneRequiredWithoutCompanyNestedInput = {
@@ -10577,10 +10787,6 @@ export namespace Prisma {
     update?: XOR<XOR<teamUpdateToOneWithWhereWithoutTasksInput, teamUpdateWithoutTasksInput>, teamUncheckedUpdateWithoutTasksInput>
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -10620,15 +10826,15 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -10645,6 +10851,17 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -10692,20 +10909,72 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedEnumUserRoleFilter<$PrismaModel = never> = {
@@ -10752,34 +11021,14 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type companyCreateWithoutOwnerInput = {
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     team?: teamCreateNestedManyWithoutCompanyInput
     employee?: employeeCreateNestedManyWithoutCompanyInput
   }
@@ -10788,6 +11037,11 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     team?: teamUncheckedCreateNestedManyWithoutCompanyInput
     employee?: employeeUncheckedCreateNestedManyWithoutCompanyInput
   }
@@ -10863,6 +11117,11 @@ export namespace Prisma {
     id?: IntFilter<"company"> | number
     name?: StringFilter<"company"> | string
     email?: StringFilter<"company"> | string
+    income?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    profit?: DecimalNullableFilter<"company"> | Decimal | DecimalJsLike | number | string | null
+    status?: StringNullableFilter<"company"> | string | null
+    workField?: StringFilter<"company"> | string
+    createdAt?: DateTimeFilter<"company"> | Date | string
     ownerID?: IntFilter<"company"> | number
   }
 
@@ -10906,7 +11165,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     employees?: employeeCreateNestedManyWithoutAdminInput
   }
 
@@ -10918,7 +11177,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     employees?: employeeUncheckedCreateNestedManyWithoutAdminInput
   }
 
@@ -11009,7 +11268,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     employees?: employeeUpdateManyWithoutAdminNestedInput
   }
 
@@ -11021,7 +11280,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     employees?: employeeUncheckedUpdateManyWithoutAdminNestedInput
   }
 
@@ -11168,6 +11427,11 @@ export namespace Prisma {
   export type companyCreateWithoutTeamInput = {
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     owner: adminCreateNestedOneWithoutCompanyInput
     employee?: employeeCreateNestedManyWithoutCompanyInput
   }
@@ -11176,6 +11440,11 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     ownerID: number
     employee?: employeeUncheckedCreateNestedManyWithoutCompanyInput
   }
@@ -11282,6 +11551,11 @@ export namespace Prisma {
   export type companyUpdateWithoutTeamInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: adminUpdateOneRequiredWithoutCompanyNestedInput
     employee?: employeeUpdateManyWithoutCompanyNestedInput
   }
@@ -11290,6 +11564,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerID?: IntFieldUpdateOperationsInput | number
     employee?: employeeUncheckedUpdateManyWithoutCompanyNestedInput
   }
@@ -11418,7 +11697,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     company?: companyCreateNestedManyWithoutOwnerInput
   }
 
@@ -11430,7 +11709,7 @@ export namespace Prisma {
     avatar: string
     first_name: string
     last_name: string
-    budget: number
+    budget: Decimal | DecimalJsLike | number | string
     company?: companyUncheckedCreateNestedManyWithoutOwnerInput
   }
 
@@ -11442,6 +11721,11 @@ export namespace Prisma {
   export type companyCreateWithoutEmployeeInput = {
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     owner: adminCreateNestedOneWithoutCompanyInput
     team?: teamCreateNestedManyWithoutCompanyInput
   }
@@ -11450,6 +11734,11 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
     ownerID: number
     team?: teamUncheckedCreateNestedManyWithoutCompanyInput
   }
@@ -11590,7 +11879,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     company?: companyUpdateManyWithoutOwnerNestedInput
   }
 
@@ -11602,7 +11891,7 @@ export namespace Prisma {
     avatar?: StringFieldUpdateOperationsInput | string
     first_name?: StringFieldUpdateOperationsInput | string
     last_name?: StringFieldUpdateOperationsInput | string
-    budget?: FloatFieldUpdateOperationsInput | number
+    budget?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     company?: companyUncheckedUpdateManyWithoutOwnerNestedInput
   }
 
@@ -11620,6 +11909,11 @@ export namespace Prisma {
   export type companyUpdateWithoutEmployeeInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: adminUpdateOneRequiredWithoutCompanyNestedInput
     team?: teamUpdateManyWithoutCompanyNestedInput
   }
@@ -11628,6 +11922,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ownerID?: IntFieldUpdateOperationsInput | number
     team?: teamUncheckedUpdateManyWithoutCompanyNestedInput
   }
@@ -11688,6 +11987,11 @@ export namespace Prisma {
     id?: number
     name: string
     email: string
+    income?: Decimal | DecimalJsLike | number | string | null
+    profit?: Decimal | DecimalJsLike | number | string | null
+    status?: string | null
+    workField: string
+    createdAt?: Date | string
   }
 
   export type employeeCreateManyAdminInput = {
@@ -11706,6 +12010,11 @@ export namespace Prisma {
   export type companyUpdateWithoutOwnerInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     team?: teamUpdateManyWithoutCompanyNestedInput
     employee?: employeeUpdateManyWithoutCompanyNestedInput
   }
@@ -11714,6 +12023,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     team?: teamUncheckedUpdateManyWithoutCompanyNestedInput
     employee?: employeeUncheckedUpdateManyWithoutCompanyNestedInput
   }
@@ -11722,6 +12036,11 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    income?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    profit?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    workField?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type employeeUpdateWithoutAdminInput = {

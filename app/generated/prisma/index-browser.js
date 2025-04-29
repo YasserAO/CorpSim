@@ -132,6 +132,11 @@ exports.Prisma.CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
+  income: 'income',
+  profit: 'profit',
+  status: 'status',
+  workField: 'workField',
+  createdAt: 'createdAt',
   ownerID: 'ownerID'
 };
 
