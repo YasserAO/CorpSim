@@ -1,21 +1,26 @@
 "use server";
 import { prisma } from "@/lib/prisma";
-import { company, admin } from "../generated/prisma";
-import { FindCompanies } from "../types";
-import { error } from "console";
 import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 export const postCompanies = async (
   name: string,
   autoHire: boolean,
   workField: string
 ) => {
   const clerkUser = await currentUser();
+  if (!clerkUser) {
+    redirect("/auth/sign-in");
+  }
   const user = await prisma.admin.findUnique({
     where: {
       clerkId: clerkUser?.id,
     },
   });
-  if (!user) return { status: false, message: "User doesn't exist" };
+  if (!user)
+    return {
+      status: false,
+      message: "User doesn't exist , please refresh the page",
+    };
   try {
     const findCompany = await prisma.company.findUnique({
       where: {
