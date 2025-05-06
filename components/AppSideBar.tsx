@@ -20,14 +20,33 @@ import {
   SidebarGroupLabel,
 } from "@/components/ui/sidebar";
 import CompanySwitcher from "@/components/company-switcher";
-import { BookCheck, Home, UsersRound, UserRoundPlus, Plus } from "lucide-react";
+import {
+  BookCheck,
+  Home,
+  UsersRound,
+  UserRoundPlus,
+  Plus,
+  Store,
+  ChartArea,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
 import { NavUser } from "@/components/navUser";
-import { setCorpSelection } from "@/app/server/cookieSet";
 
-const items = [
+const sharedSpace = [
+  {
+    title: "Job Market",
+    url: "market",
+    icon: Store,
+  },
+  {
+    title: "Leading Corps",
+    url: "leaderboard",
+    icon: ChartArea,
+  },
+];
+const corpSettings = [
   {
     title: "Home",
     url: "/",
@@ -38,11 +57,7 @@ const items = [
     url: "/employees",
     icon: UsersRound,
   },
-  {
-    title: "Hire",
-    url: "/hire",
-    icon: UserRoundPlus,
-  },
+
   {
     title: "Tasks",
     url: "tasks",
@@ -113,7 +128,22 @@ export default async function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Corp Settings</SidebarGroupLabel>
           <SidebarMenu>
-            {items.map((item) => (
+            {corpSettings.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton asChild>
+                  <Link href={item.url}>
+                    <item.icon />
+                    <span>{item.title}</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Shared Space</SidebarGroupLabel>
+          <SidebarMenu>
+            {sharedSpace.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <Link href={item.url}>
