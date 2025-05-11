@@ -4,8 +4,8 @@ import { SignInButton } from "@clerk/nextjs";
 import { mockData } from "@/app/mock/Mockcompanies";
 // Types and db
 import { company } from "@/app/generated/prisma";
-import { userCheck } from "@/app/server/checkUser";
-import { getCompanies } from "@/app/server/getCompanies";
+import { userCheck } from "@/lib/server/user/checkUser";
+import { getCompanies } from "@/lib/server/companies/getCompanies";
 
 // UIs
 import {
