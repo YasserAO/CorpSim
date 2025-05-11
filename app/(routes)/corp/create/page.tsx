@@ -33,7 +33,7 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { postCompanies } from "@/app/server/postCompanies";
+import { postCompanies } from "@/lib/server/companies/postCompanies";
 
 const Page = () => {
   // TS
