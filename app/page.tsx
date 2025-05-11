@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
-import { getCompanies } from "./server/getCompanies";
-import { getUser } from "./server/getUser";
+import { getCompanies } from "../lib/server/companies/getCompanies";
+import { getUser } from "../lib/server/user/getUser";
 
 export default async function Page() {
   const UserResponse = await getUser();
@@ -32,14 +32,18 @@ export default async function Page() {
     <div className="px-[10%] py-10 flex-1">
       <h1>Welcome {user.first_name + " " + user.last_name}</h1>
 
-      <h2>
-        Company: <span>{company[corpIndex].name}</span>{" "}
-      </h2>
-      <h3>
-        WorkField: <span>{company[corpIndex].workField}</span>
-      </h3>
+      {company.length > 0 && (
+        <>
+          <h2>
+            Company: <span>{company[corpIndex].name}</span>{" "}
+          </h2>
+          <h3>
+            WorkField: <span>{company[corpIndex].workField}</span>
+          </h3>
 
-      <h1>Sugguestions :</h1>
+          <h1>Sugguestions :</h1>
+        </>
+      )}
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo debitis
         explicabo perspiciatis similique, natus soluta vel, atque deserunt

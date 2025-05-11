@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSideBar from "@/components/AppSideBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
